@@ -1,0 +1,2156 @@
+@charset "UTF-8";
+#wrap {
+  position: relative;
+  min-width: 1200px;
+}
+@media screen and (max-width:640px) {
+  #wrap {
+    min-width: 100%;
+  }
+}
+#wrap > .loading {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+}
+#wrap > .loading > p {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  margin: -32px 0 0 -32px;
+  text-indent: -9999px;
+  background-image: url(./../images/loading.gif);
+}
+#wrap > h1 {
+  position: absolute;
+  left: 50%;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 24px;
+  z-index: 100;
+}
+
+#home {
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+#home:before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+  opacity: 0.6;
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #home {
+    background-image: url(./../images/visual.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+#home > .intro {
+  position: absolute;
+  left: 0;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width:640px) {
+  #home > .intro {
+    top: 25%;
+    padding-bottom: 30px;
+  }
+}
+#home > .intro > h2 {
+  color: #52b3d9;
+  font-size: 60px;
+  line-height: 80px;
+}
+@media screen and (max-width:640px) {
+  #home > .intro > h2 {
+    font-size: 38px;
+    line-height: 50px;
+  }
+}
+#home > .intro > h2 > span {
+  color: #68c3a3;
+}
+@media screen and (max-width:640px) {
+  #home > .intro > h2 > span {
+    display: block;
+  }
+}
+#home > .intro > p {
+  margin-top: 24px;
+  color: #ffffff;
+  line-height: 1.8;
+  letter-spacing: 1px;
+}
+@media screen and (max-width:640px) {
+  #home > .intro > p > span {
+    display: block;
+  }
+}
+#home > .intro > .myico {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+  margin: 40px auto 0;
+}
+@media screen and (max-width:640px) {
+  #home > .intro > .myico {
+    margin-top: 80px;
+  }
+}
+#home > .intro > .myico > span {
+  display: block;
+  width: 40px;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  transition: all 0.4s;
+}
+#home > .intro > .myico > span:hover {
+  background-color: #52b3d9;
+  border-color: transparent;
+}
+#home > .intro > .myico > span > i {
+  display: block;
+  height: 40px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+#home > .mouse {
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+@media screen and (max-width:640px) {
+  #home > .mouse {
+    display: none;
+  }
+}
+@keyframes mousewheel {
+  0% {
+    top: 5px;
+    opacity: 0;
+  }
+  30% {
+    top: 10px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    opacity: 0;
+  }
+}
+#home > .mouse > .wheel {
+  position: absolute;
+  left: 50%;
+  top: 5px;
+  width: 4px;
+  height: 10px;
+  margin-left: -2px;
+  text-indent: -9999px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  animation: mousewheel 1s linear infinite;
+}
+#home > .bgmov {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+@media screen and (max-width:640px) {
+  #home > .bgmov {
+    display: none;
+  }
+}
+#home > .bgmov > video {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+header {
+  width: 100%;
+  min-width: 1200px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+@media screen and (max-width:640px) {
+  header {
+    min-width: 100%;
+  }
+}
+header.fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+}
+header > .container {
+  position: relative;
+  height: 66px;
+}
+header > .container > h2 {
+  position: absolute;
+  left: 7%;
+  top: 50%;
+  margin-top: -17px;
+  text-indent: 40px;
+  text-transform: uppercase;
+  background-image: url(./../images/logo.png);
+  background-repeat: no-repeat;
+}
+header > .container > h2 > a {
+  display: block;
+  height: 32px;
+  color: #2c3e50;
+  line-height: 32px;
+}
+header > .container > .btn-gnb {
+  display: none;
+}
+@media screen and (max-width:640px) {
+  header > .container > .btn-gnb {
+    background: none;
+    border: none;
+    outline: none;
+    display: block;
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    width: 24px;
+    height: 18px;
+    margin-top: -9px;
+    text-indent: -9999px;
+    background-image: url(./../images/mnu_btn.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  header > .container > .btn-gnb.clse {
+    background-image: url(./../images/clse_btn.png);
+  }
+  @keyframes rotateBtn {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  header > .container > .btn-gnb.clse:hover {
+    animation: rotateBtn 0.5s;
+  }
+}
+header > .container > nav {
+  position: absolute;
+  right: 7%;
+  top: 26px;
+  z-index: 1000;
+}
+@media screen and (max-width:640px) {
+  header > .container > nav {
+    display: none;
+    right: initial;
+    left: 0;
+    top: 66px;
+    width: 100%;
+    border-top: 1px solid #eeeeee;
+  }
+}
+header > .container > nav > .gnb {
+  display: flex;
+}
+@media screen and (max-width:640px) {
+  header > .container > nav > .gnb {
+    display: initial;
+  }
+}
+header > .container > nav > .gnb > li {
+  border-right: 1px solid #bbbbbb;
+}
+header > .container > nav > .gnb > li:last-child {
+  border-right-width: 0;
+}
+@media screen and (max-width:640px) {
+  header > .container > nav > .gnb > li {
+    background-color: #ffffff;
+    border-right: none;
+    border-bottom: 1px solid #eeeeee;
+  }
+}
+header > .container > nav > .gnb > li > a {
+  display: block;
+  padding: 0 15px;
+  color: #3c3c3c;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+@media screen and (max-width:640px) {
+  header > .container > nav > .gnb > li > a {
+    height: 48px;
+    line-height: 48px;
+    padding: 0;
+    text-indent: 7%;
+  }
+}
+header > .container > nav > .gnb > li:hover > a, header > .container > nav > .gnb > li.on > a {
+  color: #52b3d9;
+}
+
+header ~ section {
+  padding-top: 80px;
+}
+header ~ section > h2 {
+  margin-bottom: 72px;
+  color: #2c3e50;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+header ~ section > h2:after {
+  display: block;
+  width: 138px;
+  height: 15px;
+  margin: 30px auto 0;
+  background-image: url(./../images/deco_tit.png);
+  content: "";
+}
+
+#aboutme > .container {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-bottom: 30px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container {
+    display: block;
+    padding-bottom: 0;
+  }
+}
+#aboutme > .container > .profile {
+  width: 33.33333%;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .profile {
+    width: 100%;
+  }
+}
+#aboutme > .container > .profile > div {
+  position: relative;
+  width: 360px;
+  margin: 0 auto;
+  border: 1px solid #d5d5d5;
+  border-radius: 0 0 10px 10px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .profile > div {
+    width: 95%;
+  }
+}
+#aboutme > .container > .profile > div:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 20px;
+  border-bottom: 1px solid #d5d5d5;
+  border-radius: 0 0 10px 10px;
+  content: "";
+}
+#aboutme > .container > .profile > div > .myphoto {
+  overflow: hidden;
+  background-image: url(./../images/aboutme/photo-frame.png);
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#aboutme > .container > .profile > div > .myphoto > img {
+  position: relative;
+  z-index: -1;
+  display: block;
+  width: 410px;
+  margin-left: -50px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .profile > div > .myphoto > img {
+    margin: 0;
+    width: 100%;
+  }
+}
+#aboutme > .container > .profile > div > ol {
+  padding: 0 20px;
+}
+#aboutme > .container > .profile > div > ol > li {
+  height: 45px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 45px;
+  border-bottom: 1px solid #eeeeee;
+}
+#aboutme > .container > .profile > div > ol > li:last-child {
+  border-bottom-width: 0;
+}
+#aboutme > .container > .biography {
+  width: 66.66666%;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .biography {
+    width: 100%;
+    margin-top: 48px;
+  }
+}
+#aboutme > .container > .biography > .detail {
+  margin-bottom: 64px;
+  padding-left: 10%;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .biography > .detail {
+    padding: 0 5%;
+  }
+}
+#aboutme > .container > .biography > .detail > h3 {
+  margin-bottom: 30px;
+  font-weight: 500;
+  font-size: 32px;
+}
+#aboutme > .container > .biography > .detail > p {
+  margin-bottom: 20px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .biography > .detail > p {
+    line-height: 1.4;
+  }
+  #aboutme > .container > .biography > .detail > p > br {
+    display: none;
+  }
+}
+#aboutme > .container > .biography > .detail > p > mark {
+  background-color: #fcf8e3;
+}
+#aboutme > .container > .biography > .detail > .ican {
+  margin-top: 80px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .container > .biography > .detail > .ican {
+    margin-top: 50px;
+  }
+}
+#aboutme > .container > .biography > .detail > .ican > li {
+  font-size: 16px;
+  line-height: 40px;
+}
+#aboutme > .container > .biography > .detail > .ican > li:before {
+  margin-right: 10px;
+  color: #52b3d9;
+  font-family: "Font Awesome 5 Free";
+  content: "\f14a";
+}
+#aboutme > .workstyle {
+  margin-top: 24px;
+  background-color: #2c3e50;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle {
+    margin-top: 0;
+  }
+}
+#aboutme > .workstyle > .container {
+  position: relative;
+  width: 1100px;
+  height: 120px;
+  margin: 0 auto;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle > .container {
+    width: 100%;
+    margin: 0;
+  }
+}
+#aboutme > .workstyle > .container:after {
+  display: block;
+  position: absolute;
+  left: 120px;
+  top: 20px;
+  width: 67px;
+  height: 60px;
+  background-image: url(./../images/aboutme/audio.gif);
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle > .container:after {
+    display: none;
+  }
+}
+#aboutme > .workstyle > .container > ol {
+  position: absolute;
+  left: 130px;
+  top: 15px;
+  width: 560px;
+  height: 105px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle > .container > ol {
+    position: initial;
+    width: 100%;
+    height: initial;
+    padding-top: 15px;
+  }
+}
+#aboutme > .workstyle > .container > ol:before, #aboutme > .workstyle > .container > ol:after {
+  display: block;
+  position: absolute;
+  width: 300px;
+  margin-left: 300px;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle > .container > ol:before, #aboutme > .workstyle > .container > ol:after {
+    display: none;
+  }
+}
+#aboutme > .workstyle > .container > ol:before {
+  left: 50%;
+  top: 38px;
+  content: "하는";
+}
+#aboutme > .workstyle > .container > ol:after {
+  left: 58%;
+  top: 38px;
+  content: "코딩 스타일을 좋아합니다!";
+}
+#aboutme > .workstyle > .container > ol > li {
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 30px;
+  text-align: right;
+  letter-spacing: 0.1em;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .workstyle > .container > ol > li {
+    text-align: center;
+  }
+}
+#aboutme > .workstyle > .container > ol > li > span {
+  color: #ffc90e;
+  font-weight: 400;
+}
+#aboutme > .talk {
+  background-image: url(./../images/heaven.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk {
+    background-size: cover;
+  }
+}
+#aboutme > .talk > h3 {
+  padding: 70px 0;
+  color: #2c3e50;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+}
+#aboutme > .talk > ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk > ul {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+#aboutme > .talk > ul > li {
+  position: relative;
+  width: 30%;
+  min-width: 155px;
+  min-height: 400px;
+  padding: 0 2%;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk > ul > li {
+    width: 100%;
+    min-height: 450px;
+    padding: 0 10%;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(14, 14, 14, 0.5);
+  }
+  #aboutme > .talk > ul > li:last-child {
+    margin-bottom: 0;
+  }
+}
+#aboutme > .talk > ul > li > h4 {
+  position: absolute;
+  left: 50%;
+  top: 140px;
+  margin-left: 30px;
+  padding: 5px 10px 5px 30px;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 3px;
+  background-color: #52b3d9;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk > ul > li > h4 {
+    top: initial;
+    bottom: 15px;
+    margin-left: -30px;
+    padding: 5px 10px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+  }
+}
+#aboutme > .talk > ul > li > h4:after {
+  display: block;
+  position: absolute;
+  left: -105px;
+  top: -115px;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border-radius: 50%;
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk > ul > li > h4:after {
+    top: -370px;
+    left: -50px;
+  }
+}
+#aboutme > .talk > ul > li:nth-child(1) > h4:after {
+  background-image: url(./../images/내사진/친구2.jpg);
+  background-position: -95px -30px;
+  background-repeat: no-repeat;
+  background-size: 200%;
+}
+#aboutme > .talk > ul > li:nth-child(2) > h4:after {
+  background-image: url(./../images/내사진/친구4.jpg);
+  background-position: 0 center;
+  background-repeat: no-repeat;
+}
+#aboutme > .talk > ul > li:nth-child(3) > h4:after {
+  background-image: url(./../images/내사진/친구3.jpg);
+  background-position: 0 -30px;
+  background-repeat: no-repeat;
+  background-size: 130%;
+}
+#aboutme > .talk > ul > li > strong {
+  display: block;
+  margin: 190px 0 30px;
+  font-size: 16px;
+  text-align: center;
+}
+@media screen and (max-width:640px) {
+  #aboutme > .talk > ul > li > strong {
+    margin-top: 210px;
+  }
+}
+#aboutme > .talk > ul > li > p {
+  line-height: 1.8;
+  text-align: center;
+}
+
+#skill > article.skill-1 {
+  margin-bottom: 120px;
+}
+@media screen and (max-width:640px) {
+  #skill > article.skill-1 {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #eeeeee;
+  }
+}
+#skill > article > h3 {
+  margin-bottom: 80px;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 48px;
+  text-align: center;
+}
+@media screen and (max-width:640px) {
+  #skill > article > h3 {
+    margin-bottom: 40px;
+  }
+}
+#skill > article > h3 > span {
+  display: block;
+}
+#skill > article > ol {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+@media screen and (max-width:640px) {
+  #skill > article > ol {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+#skill > article > ol > li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 45%;
+  height: 150px;
+  padding-left: 180px;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+@media screen and (max-width:640px) {
+  #skill > article > ol > li {
+    width: 100%;
+  }
+  #skill > article > ol > li:first-child {
+    margin-bottom: 40px;
+  }
+}
+#skill > article > ol > li > h4 {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-size: 24px;
+}
+#skill > article > ol > li > p {
+  line-height: 1.6;
+}
+#skill > article.skill-1 li:first-child {
+  padding-left: 360px;
+  background-image: url(./../images/skill/skill01.png);
+  background-position: 180px 0;
+}
+@media screen and (max-width:640px) {
+  #skill > article.skill-1 li:first-child {
+    padding-left: 180px;
+    background-position: 0 0;
+  }
+}
+#skill > article.skill-1 li:last-child {
+  background-image: url(./../images/skill/skill02.png);
+}
+#skill > article.skill-2 li:first-child {
+  padding-left: 360px;
+  background-image: url(./../images/skill/skill03.png);
+  background-position: 180px 0;
+}
+@media screen and (max-width:640px) {
+  #skill > article.skill-2 li:first-child {
+    padding-left: 180px;
+    background-position: 0 0;
+  }
+}
+#skill > article.skill-2 li:last-child {
+  background-image: url(./../images/skill/skill04.png);
+}
+
+#ability {
+  margin-top: 100px;
+  background-color: #1a1a1a;
+}
+#ability > h2 {
+  color: #fff;
+}
+#ability > .ability-container {
+  padding-bottom: 50px;
+}
+#ability > .ability-container > .stick {
+  display: flex;
+  justify-content: space-around;
+}
+@media screen and (max-width:640px) {
+  #ability > .ability-container > .stick {
+    display: block;
+  }
+}
+#ability > .ability-container > .stick > .stick-container {
+  width: 43%;
+}
+@media screen and (max-width:640px) {
+  #ability > .ability-container > .stick > .stick-container {
+    width: 100%;
+  }
+}
+#ability > .ability-container > .stick > .stick-container > .item {
+  display: flex;
+  margin-bottom: 40px;
+}
+@media screen and (max-width:640px) {
+  #ability > .ability-container > .stick > .stick-container > .item {
+    padding: 0 7%;
+  }
+}
+#ability > .ability-container > .stick > .stick-container > .item > h3 {
+  width: 17%;
+  height: 10px;
+  padding-right: 8%;
+  color: #fff;
+  font-weight: 600;
+  line-height: 10px;
+  text-align: right;
+}
+@media screen and (max-width:640px) {
+  #ability > .ability-container > .stick > .stick-container > .item > h3 {
+    font-size: 15px;
+  }
+}
+#ability > .ability-container > .stick > .stick-container > .item > .progress {
+  position: relative;
+  width: 75%;
+  height: 10px;
+  background-color: #3a4149;
+  border-radius: 3px;
+}
+#ability > .ability-container > .stick > .stick-container > .item > .progress > .bar {
+  width: 0;
+  height: 100%;
+  background-color: #52b3d9;
+  transition: all 2s ease-in-out;
+}
+#ability > .ability-container > .stick > .stick-container > .item > .progress > .bar > span {
+  position: absolute;
+  top: -20px;
+  right: 15px;
+  color: #fff;
+}
+#ability > .ability-container > .piechart {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+@media screen and (max-width:640px) {
+  #ability > .ability-container > .piechart {
+    flex-flow: row wrap;
+    margin-top: 70px;
+  }
+}
+#ability > .ability-container > .piechart > .item {
+  width: 140px;
+  height: 200px;
+}
+#ability > .ability-container > .piechart > .item > .chart {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  text-align: center;
+}
+#ability > .ability-container > .piechart > .item > .chart canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#ability > .ability-container > .piechart > .item > .chart > .percent {
+  color: #fff;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 140px;
+}
+#ability > .ability-container > .piechart > .item > .chart > .percent:after {
+  content: "%";
+}
+#ability > .ability-container > .piechart > .item > .chart > .tit {
+  height: 60px;
+  color: #fcf8e3;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 60px;
+}
+#ability > .resume {
+  padding: 50px 0;
+  background-color: #fff;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume {
+    padding-bottom: 0;
+  }
+}
+#ability > .resume > div {
+  display: flex;
+  justify-content: center;
+  padding: 0 30px;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume > div {
+    display: block;
+  }
+}
+#ability > .resume > div > .frame {
+  overflow: hidden;
+  width: 520px;
+  height: 340px;
+  margin-right: 50px;
+  border: 1px solid #000;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume > div > .frame {
+    width: 100%;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+#ability > .resume > div > .frame > img {
+  display: block;
+  width: 100%;
+}
+#ability > .resume > div > .iam {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+#ability > .resume > div > .iam > p {
+  line-height: 1.8;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume > div > .iam > p > br {
+    display: none;
+  }
+}
+#ability > .resume > div > .iam > p > span {
+  display: block;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume > div > .iam > p > span {
+    display: inline;
+  }
+}
+#ability > .resume > div > .iam > a {
+  display: block;
+  width: 260px;
+  height: 40px;
+  color: #fff;
+  line-height: 40px;
+  text-align: center;
+  background-color: #1a1a1a;
+}
+@media screen and (max-width:640px) {
+  #ability > .resume > div > .iam > a {
+    display: none;
+  }
+}
+#ability > .resume > div > .iam > .shadow {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#ability > .resume > div > .iam > .shadow > .modal {
+  display: block;
+  overflow-y: scroll;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1200px;
+  height: 800px;
+  margin: -400px 0 0 -600px;
+}
+#ability > .resume > div > .iam > .shadow > .modal > img {
+  display: block;
+  width: 100%;
+}
+#ability > .resume > div > .iam > .shadow > .clse {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 360px 0 0 520px;
+}
+
+#uxdesign {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width:640px) {
+  #uxdesign {
+    width: 100%;
+    margin: 0;
+  }
+}
+#uxdesign > .slides {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 440px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .slides {
+    height: 300px;
+  }
+}
+#uxdesign > .slides > .slides-container {
+  display: flex;
+  position: absolute;
+  left: 0%;
+  /*
+          left : -(100*nowIdx) + '%'
+
+          첫번째 슬라이드   0%            -100*0 + '%'
+          두번째 슬라이드   -100%         -100*1 + '%'
+          세번째 슬라이드 -200%         -100*2 + '%'
+          네번째 슬라이드 -300%         -100*3 + '%'
+       */
+  top: 0;
+  width: 400%;
+}
+#uxdesign > .slides > .slides-container > li {
+  width: 25%;
+  height: 440px;
+  text-indent: -9999px;
+  background-position: center center;
+  background-size: cover;
+}
+#uxdesign > .slides > .slides-container > li.banner_1 {
+  background-image: url(./../images/내사진/uxui1.png);
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .slides > .slides-container > li.banner_1 {
+    background-image: url(./../images/내사진/ui3.jpg);
+  }
+}
+#uxdesign > .slides > .slides-container > li.banner_2 {
+  background-image: url(./../images/내사진/ux.jpg);
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .slides > .slides-container > li.banner_2 {
+    background-image: url(./../images/내사진/ui2.jpg);
+  }
+}
+#uxdesign > .slides > .slides-container > li.banner_3 {
+  background-image: url(./../images/내사진/ui.jpg);
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .slides > .slides-container > li.banner_3 {
+    background-image: url(./../images/내사진/uidesign2.jpg);
+  }
+}
+#uxdesign > .slides > .slides-container > li.banner_4 {
+  background-image: url(./../images/내사진/uidesign.jpg);
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .slides > .slides-container > li.banner_4 {
+    background-image: url(./../images/내사진/phone.png);
+  }
+}
+#uxdesign > .slides > .slides-pagination {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  width: 110px;
+  margin-left: -55px;
+}
+#uxdesign > .slides > .slides-pagination > li {
+  width: 18px;
+  background-image: url(./../images/uxdesign/slides/bul.png);
+}
+#uxdesign > .slides > .slides-pagination > li.on, #uxdesign > .slides > .slides-pagination > li:hover {
+  background-position: 0 -18px;
+}
+#uxdesign > .slides > .slides-pagination > li > a {
+  display: block;
+  height: 18px;
+  text-indent: -9999px;
+}
+#uxdesign > .slides > .slides-navigation {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 100px;
+  margin-top: -50px;
+  text-indent: -9999px;
+  background-image: url(./../images/uxdesign/slides/btn_navigation.png);
+}
+#uxdesign > .slides > .slides-navigation.slides-prev {
+  left: 0;
+  background-position: -5px -225px;
+}
+#uxdesign > .slides > .slides-navigation.slides-prev:hover {
+  background-position: -5px -335px;
+}
+#uxdesign > .slides > .slides-navigation.slides-next {
+  right: 0;
+  background-position: -5px -5px;
+}
+#uxdesign > .slides > .slides-navigation.slides-next:hover {
+  background-position: -5px -115px;
+}
+#uxdesign > .intro {
+  padding: 80px 0 104px;
+}
+#uxdesign > .intro > h3 {
+  position: relative;
+  margin-bottom: 56px;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > h3 {
+    line-height: 1.4;
+  }
+  #uxdesign > .intro > h3 > span {
+    display: block;
+    height: 0;
+    text-indent: -9999px;
+  }
+}
+#uxdesign > .intro > h3:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 86px;
+  background-image: url(./../images/deocBlockTransparent.png);
+  content: "";
+}
+#uxdesign > .intro > h3:after {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 180px;
+  width: 58px;
+  height: 156px;
+  background-image: url(./../images/decoBlockBlue.png);
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > h3:before, #uxdesign > .intro > h3:after {
+    display: none;
+  }
+}
+#uxdesign > .intro > p {
+  width: 664px;
+  margin: 0 auto 80px;
+  line-height: 2;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > p {
+    width: 90%;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  #uxdesign > .intro > p br {
+    display: none;
+  }
+}
+#uxdesign > .intro > p > span {
+  display: block;
+  margin-bottom: 30px;
+}
+#uxdesign > .intro > p > strong {
+  font-weight: 400;
+}
+#uxdesign > .intro > .bus-alarm {
+  display: flex;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > .bus-alarm {
+    flex-direction: column-reverse;
+  }
+}
+#uxdesign > .intro > .bus-alarm > h4 {
+  align-self: flex-end;
+  width: 43%;
+  margin-right: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > .bus-alarm > h4 {
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+#uxdesign > .intro > .bus-alarm > .frame {
+  width: 527px;
+}
+#uxdesign > .intro > .bus-alarm > .frame:nth-of-type(2) {
+  padding-right: 130px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > .bus-alarm > .frame:nth-of-type(2) {
+    padding: 0;
+  }
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .intro > .bus-alarm > .frame {
+    width: 90%;
+    margin: 0 auto 10px;
+  }
+}
+#uxdesign > .intro > .bus-alarm > .frame > img {
+  display: block;
+  width: 100%;
+}
+#uxdesign > .uxui {
+  width: 1200px;
+  padding-bottom: 104px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui {
+    width: 100%;
+  }
+}
+#uxdesign > .uxui > h3 {
+  position: relative;
+  width: 330px;
+  margin: 0 auto 156px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  border-bottom: 2px solid #eeeeee;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > h3 {
+    margin-bottom: 50px;
+  }
+}
+#uxdesign > .uxui > h3:before, #uxdesign > .uxui > h3:after {
+  position: absolute;
+  top: 130px;
+  color: #52b3d9;
+  font-weight: 800;
+  font-size: 36px;
+}
+#uxdesign > .uxui > h3:before {
+  left: 50%;
+  margin-left: -200px;
+  content: "UI";
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > h3:before {
+    top: 210px;
+    width: 40px;
+    margin-left: -20px;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+#uxdesign > .uxui > h3:after {
+  right: 50%;
+  margin-right: -200px;
+  content: "UX";
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > h3:after {
+    top: 520px;
+    width: 40px;
+    margin-right: -20px;
+    font-size: 24px;
+    text-align: center;
+  }
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container {
+    display: flex;
+    justify-content: center;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case {
+    flex-direction: column;
+    width: 40%;
+  }
+  #uxdesign > .uxui > .container > .uxui-case:first-child {
+    margin-right: 30px;
+  }
+  #uxdesign > .uxui > .container > .uxui-case:last-child {
+    margin-left: 30px;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > dl {
+  width: 40%;
+  height: 280px;
+  margin: 0 auto;
+  padding-top: 100px;
+  line-height: 1.3;
+  text-align: center;
+  background-color: #d5d5d5;
+  box-sizing: border-box;
+  order: 200;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > dl {
+    width: 100%;
+    padding: 80px 10px 0;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > dl > dt {
+  margin-bottom: 30px;
+  color: #4d4d4d;
+  font-weight: 600;
+  font-size: 20px;
+}
+#uxdesign > .uxui > .container > .uxui-case > dl > dd {
+  color: #4d4d4d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > dl > dd > br {
+    display: none;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > .ui-frame {
+  order: 100;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 420px;
+  height: 280px;
+  margin-left: -420px;
+  transition: all 0.3s ease-out;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > .ui-frame {
+    position: initial;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > .ui-frame > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 140px 0 0 140px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > .ui-frame > img {
+    height: 200px;
+    border-radius: 150px 150px 0 0;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > .ux-frame {
+  order: 300;
+  position: absolute;
+  right: 50%;
+  top: 0;
+  width: 420px;
+  height: 280px;
+  margin-right: -420px;
+  transition: all 0.3s ease-out;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > .ux-frame {
+    position: initial;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case > .ux-frame > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 140px 140px 0;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case > .ux-frame > img {
+    border-radius: 0 0 150px 150px;
+  }
+  #uxdesign > .uxui > .container > .uxui-case > .ux-frame > img:nth-of-type(1) {
+    height: 250px;
+  }
+}
+#uxdesign > .uxui > .container > .uxui-case:hover > .ui-frame {
+  left: 0;
+  margin-left: 0;
+}
+#uxdesign > .uxui > .container > .uxui-case:hover > .ux-frame {
+  right: 0;
+  margin-right: 0;
+}
+#uxdesign > .uxui > .container > .uxui-case:nth-of-type(2) {
+  margin-top: 30px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .uxui > .container > .uxui-case:nth-of-type(2) {
+    margin-top: 0;
+  }
+}
+#uxdesign > .works {
+  margin-bottom: 50px;
+}
+#uxdesign > .works > h3 {
+  position: relative;
+  width: 330px;
+  margin: 0 auto 56px;
+  padding-bottom: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+  border-bottom: 2px solid #eeeeee;
+}
+#uxdesign > .works > .works-list {
+  display: flex;
+  justify-content: space-between;
+}
+#uxdesign > .works > .works-list:last-child {
+  margin-top: 64px;
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .works > .works-list {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+#uxdesign > .works > .works-list > li {
+  width: 384px;
+  padding-top: 24px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 7px 20px rgba(182, 245, 206, 0.2);
+}
+@media screen and (max-width:640px) {
+  #uxdesign > .works > .works-list > li {
+    width: 100%;
+    margin-bottom: 64px;
+    box-shadow: 0 0 10px #aaa;
+  }
+  #uxdesign > .works > .works-list > li:last-child {
+    margin-bottom: 0;
+  }
+}
+#uxdesign > .works > .works-list > li > h4 {
+  padding-bottom: 36px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+}
+#uxdesign > .works > .works-list > li > h4 + p {
+  padding: 0 65px;
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+#uxdesign > .works > .works-list > li > h4 + p > .tip {
+  display: block;
+  color: #68c3a3;
+  padding-top: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+#uxdesign > .works > .works-list > li > .frame {
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+}
+#uxdesign > .works > .works-list > li > .frame > a > img {
+  display: block;
+  width: 100%;
+  transition: all 0.5s;
+}
+#uxdesign > .works > .works-list > li > .frame > a > img:hover {
+  transform: scale(1.2);
+}
+
+#portfolio > article {
+  width: 1200px;
+  margin: 0 auto;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article {
+    width: 100%;
+    margin: 0;
+  }
+}
+#portfolio > article.slides {
+  position: relative;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+#portfolio > article.slides > .slides-pagination {
+  display: flex;
+  justify-content: space-around;
+  width: 840px;
+  margin: 0 auto 96px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-pagination {
+    position: absolute;
+    left: 50%;
+    bottom: 6px;
+    z-index: 100;
+    width: 180px;
+    margin: 0;
+    margin-left: -90px;
+    background-color: #eeeeee;
+    border-radius: 50px;
+  }
+}
+#portfolio > article.slides > .slides-pagination > li {
+  overflow: hidden;
+  width: 120px;
+  border: 1px solid #eeeeee;
+  border-radius: 20px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-pagination > li {
+    width: 60px;
+  }
+}
+#portfolio > article.slides > .slides-pagination > li.on > a, #portfolio > article.slides > .slides-pagination > li:hover > a {
+  color: #ffffff;
+  background-color: #52b3d9;
+}
+#portfolio > article.slides > .slides-pagination > li > a {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-pagination > li > a {
+    height: 10px;
+    text-indent: -9999px;
+    transition: all 0.3s;
+  }
+}
+#portfolio > article.slides > .slides-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 380px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container {
+    height: 600px;
+  }
+}
+#portfolio > article.slides > .slides-container > figure {
+  display: none;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure {
+    flex-direction: column-reverse;
+  }
+}
+#portfolio > article.slides > .slides-container > figure:nth-child(1) {
+  display: flex;
+}
+#portfolio > article.slides > .slides-container > figure:nth-child(3) > figcaption > h3 {
+  font-size: 24px;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption {
+  width: 500px;
+  padding-top: 35px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure > figcaption {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > h3 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 24px;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .tip {
+  margin-top: 8px;
+  color: #6f6f6f;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .desc,
+#portfolio > article.slides > .slides-container > figure > figcaption > .tools,
+#portfolio > article.slides > .slides-container > figure > figcaption > .etc {
+  margin-top: 20px;
+  color: #3c3c3c;
+  line-height: 24px;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .desc > span,
+#portfolio > article.slides > .slides-container > figure > figcaption > .tools > span,
+#portfolio > article.slides > .slides-container > figure > figcaption > .etc > span {
+  font-weight: 600;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure > figcaption > .desc br,
+  #portfolio > article.slides > .slides-container > figure > figcaption > .tools br,
+  #portfolio > article.slides > .slides-container > figure > figcaption > .etc br {
+    display: none;
+  }
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .etc {
+  margin: 0 0 30px 0;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .btn {
+  display: flex;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .btn > a {
+  display: block;
+  width: 132px;
+  height: 40px;
+  font-size: 15px;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+  background-color: #eeeeee;
+  border-radius: 50px;
+  transition: all 0.2s ease-out;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .btn > a.proc {
+  margin-right: 10px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure > figcaption > .btn > a.proc {
+    display: none;
+  }
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .btn > a:hover {
+  color: #ffffff;
+  background-color: #68c3a3;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .shadow {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .shadow > .lightbox {
+  display: block;
+  overflow-y: scroll;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 960px;
+  height: 800px;
+  margin: -400px 0 0 -480px;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .shadow > .lightbox > img {
+  display: block;
+  width: 100%;
+}
+#portfolio > article.slides > .slides-container > figure > figcaption > .shadow > .clse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 370px 0 0 410px;
+}
+#portfolio > article.slides > .slides-container > figure > .frame {
+  position: relative;
+  width: 700px;
+  height: 380px;
+  background-image: url(./../images/portfolio/bg_macbook.png);
+  background-repeat: no-repeat;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure > .frame {
+    width: 360px;
+    height: 198px;
+    margin: 0 auto;
+    background-size: contain;
+  }
+}
+#portfolio > article.slides > .slides-container > figure > .frame > img {
+  display: block;
+  position: absolute;
+  left: 76px;
+  top: 27px;
+  width: 553px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-container > figure > .frame > img {
+    left: 42px;
+    top: 18px;
+    width: 280px;
+  }
+}
+#portfolio > article.slides > .slides-navigation {
+  display: none;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.slides > .slides-navigation {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 25px;
+    text-indent: -9999px;
+  }
+  #portfolio > article.slides > .slides-navigation.slides-prev {
+    left: 7%;
+    background-image: url(./../images/portfolio/btn_prev.png);
+  }
+  #portfolio > article.slides > .slides-navigation.slides-next {
+    right: 7%;
+    background-image: url(./../images/portfolio/btn_next.png);
+  }
+}
+#portfolio > article.intro {
+  width: 100%;
+  background-image: url(./../images/portfolio/bg_pofol.png);
+  background-size: cover;
+}
+#portfolio > article.intro > .container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container {
+    width: 100%;
+  }
+}
+#portfolio > article.intro > .container > h3 {
+  position: relative;
+  margin-bottom: 56px;
+  font-weight: 500;
+  font-size: 32px;
+  text-align: center;
+}
+#portfolio > article.intro > .container > h3:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 48px;
+  height: 86px;
+  background-image: url(./../images/deocBlockTransparent.png);
+  content: "";
+}
+#portfolio > article.intro > .container > h3:after {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 180px;
+  width: 58px;
+  height: 156px;
+  background-image: url(./../images/decoBlockBlue.png);
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > h3 > span {
+    display: block;
+    margin-top: 22px;
+  }
+  #portfolio > article.intro > .container > h3:after, #portfolio > article.intro > .container > h3:before {
+    display: none;
+  }
+}
+#portfolio > article.intro > .container > p {
+  width: 664px;
+  margin: 0 auto 80px;
+  line-height: 30px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > p {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+#portfolio > article.intro > .container > p > span {
+  display: block;
+  margin-bottom: 30px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > p > span br {
+    display: none;
+  }
+}
+#portfolio > article.intro > .container > p > strong {
+  font-weight: 400;
+}
+#portfolio > article.intro > .container > .coding {
+  margin-top: 100px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding {
+    margin-top: 0;
+  }
+}
+#portfolio > article.intro > .container > .coding > h4 {
+  position: relative;
+  height: 300px;
+  margin-bottom: 104px;
+  font-weight: 400;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > h4 {
+    width: 90%;
+    margin: 0 auto 50px;
+    text-align: center;
+  }
+}
+#portfolio > article.intro > .container > .coding > h4 > span {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -140px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > h4 > span {
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+    margin: 0;
+  }
+}
+#portfolio > article.intro > .container > .coding > h4:after {
+  display: block;
+  position: absolute;
+  right: 35px;
+  bottom: 0;
+  z-index: -1;
+  width: 470px;
+  height: 300px;
+  background-image: url(./../images/내사진/code01.png);
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > h4:after {
+    width: 100%;
+    right: 50%;
+    margin-right: -50%;
+  }
+}
+#portfolio > article.intro > .container > .coding > div {
+  height: 487px;
+  padding-left: 550px;
+  background-image: url(./../images/내사진/code02.png);
+  background-position: 50px 0;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > div {
+    width: 90%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-bottom: 320px;
+    background-position: 0 bottom;
+  }
+}
+#portfolio > article.intro > .container > .coding > div > h4 {
+  padding: 30px 0;
+  font-size: 32px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > div > h4 {
+    font-weight: 500;
+    font-size: 18px;
+  }
+}
+#portfolio > article.intro > .container > .coding > div > p {
+  line-height: 30px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > div > p {
+    line-height: 1.6;
+  }
+  #portfolio > article.intro > .container > .coding > div > p br {
+    display: none;
+  }
+}
+#portfolio > article.intro > .container > .coding > div > p > span {
+  display: block;
+  margin-bottom: 30px;
+}
+@media screen and (max-width:640px) {
+  #portfolio > article.intro > .container > .coding > div > p > span {
+    margin-bottom: 20px;
+  }
+}
+
+#contact {
+  width: 1200px;
+  margin: 0 auto 150px;
+}
+@media screen and (max-width:640px) {
+  #contact {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 50px;
+  }
+}
+#contact > .apply {
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply {
+    border: none;
+  }
+}
+#contact > .apply > .help {
+  position: relative;
+  height: 120px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d5d5d5;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > .help {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+#contact > .apply > .help > h3 {
+  position: absolute;
+  left: 120px;
+  top: 52px;
+  font-weight: 500;
+  font-size: 32px;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > .help > h3 {
+    position: initial;
+  }
+}
+#contact > .apply > .help > h3:after {
+  display: block;
+  position: absolute;
+  right: -90px;
+  top: -5px;
+  width: 1px;
+  height: 50px;
+  background-color: #d5d5d5;
+  content: "";
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > .help > h3:after {
+    display: none;
+  }
+}
+#contact > .apply > .help > p {
+  position: absolute;
+  left: 650px;
+  top: 40px;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > .help > p {
+    position: initial;
+    margin-top: 20px;
+  }
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > dl {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+#contact > .apply > dl > dt.on {
+  background-color: #68c3a3;
+}
+#contact > .apply > dl > dt.on > a {
+  color: #ffffff;
+  border-bottom-color: transparent;
+}
+#contact > .apply > dl > dt.on > a:after {
+  background-image: url(./../images/contact/after_up.png);
+}
+#contact > .apply > dl > dt:nth-of-type(7) > a {
+  border-bottom: none;
+}
+#contact > .apply > dl > dt > a {
+  display: block;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 70px;
+  border-bottom: 1px solid #eeeeee;
+}
+#contact > .apply > dl > dt > a:after {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 15px;
+  height: 19px;
+  margin-top: -5px;
+  background-image: url(./../images/contact/after_down.png);
+  background-repeat: no-repeat;
+  content: "";
+}
+#contact > .apply > dl > dd {
+  display: none;
+  background-color: #f3f3f3;
+}
+#contact > .apply > dl > dd > .answer {
+  margin: 0 90px;
+  padding: 40px 0;
+}
+#contact > .apply > dl > dd > .answer > span {
+  display: block;
+  font-weight: 600;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > dl > dd > .answer {
+    margin: 0 20px;
+  }
+}
+#contact > .apply > p {
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding-left: 72px;
+  font-weight: 200;
+  line-height: 32px;
+  background-color: #ebebeb;
+  background-image: url(./../images/contact/thank.png);
+  background-position: 95% 60%;
+  background-repeat: no-repeat;
+}
+@media screen and (max-width:640px) {
+  #contact > .apply > p {
+    height: 150px;
+    padding: 0 20px;
+    font-weight: 300;
+    text-align: center;
+    background-image: none;
+  }
+}
+
+footer {
+  min-width: 1200px;
+}
+@media screen and (max-width:640px) {
+  footer {
+    min-width: 100%;
+  }
+}
+footer > .working {
+  border-top: 1px solid #eeeeee;
+}
+footer > .working > p {
+  padding-left: 7%;
+  height: 80px;
+  line-height: 80px;
+}
+footer > .working > p > a {
+  margin: 0 30px;
+}
+footer > .working > p > a:hover {
+  text-decoration: underline;
+}
+footer > .info {
+  background-color: #1a1a1a;
+}
+footer > .info > .container {
+  position: relative;
+  padding: 45px 7% 40px;
+}
+footer > .info > .container h2,
+footer > .info > .container p {
+  margin-bottom: 15px;
+  color: #aaa;
+  font-size: 13px;
+}
+footer > .info > .container h2 > a,
+footer > .info > .container p > a {
+  color: #aaa;
+}
+footer > .info > .container h2 > .bar,
+footer > .info > .container p > .bar {
+  margin: 0 10px;
+}
+footer > .info > .container h2:after {
+  display: block;
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  width: 53px;
+  height: 68px;
+  margin-top: -34px;
+  background-image: url(./../images/footer_logo.png);
+  content: "";
+}
+@media screen and (max-width:640px) {
+  footer > .info > .container h2:after {
+    display: none;
+  }
+}
+@media screen and (max-width:640px) {
+  footer > .info > .container > p.iam_2 > span {
+    display: block;
+  }
+}
+
+aside {
+  display: none;
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  z-index: 1000;
+}
+aside > .top {
+  display: block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background-color: #52b3d9;
+}
+aside > .top > i {
+  color: #ffffff;
+}/*# sourceMappingURL=style.css.map */

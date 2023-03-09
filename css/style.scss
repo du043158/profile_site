@@ -1,0 +1,2393 @@
+@charset "UTF-8";
+
+//컬러시스템
+$pri-color-1: #2c3e50;
+$pri-color-2: #52b3d9;
+$pri-color-3: #ffffff;
+
+$sec-color-1: #68c3a3;
+$sec-color-2: #333333;
+$sec-color-3: #eeeeee;
+
+$point-color-1: #ffc90e;
+$point-color-2: #fcf8e3;
+
+//변수선언
+$slogan: 60px;
+$mainTitle: 50px;
+$subTitle: 32px;
+$heading: 28px;
+$heavyTitle: 24px;
+$contTitle: 18px;
+$txtMedium: 16px;
+$txtNormal: 14px;
+$txtSmall: 13px;
+
+//문자열변수
+$mobile: 'screen and (max-width:640px)';
+
+//믹신변수 - 반복되는 코드에 유용
+@mixin imgBasic {
+	display: block;
+	width: 100%;
+}
+
+//믹신함수
+
+#wrap {
+	position: relative;
+	min-width: 1200px; //pc대응
+
+	@media #{$mobile} {
+		min-width: 100%;
+	}
+
+	> .loading {
+		position: fixed;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		z-index: 1000;
+		background-color: $pri-color-3;
+
+		> p {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			width: 64px;
+			height: 64px;
+			margin: -32px 0 0 -32px;
+			text-indent: -9999px;
+			background-image: url(./../images/loading.gif);
+		}
+	} //end of .loading
+
+	> h1 {
+		position: absolute;
+		left: 50%;
+		// top: 160px;//나중에 js에서 설정
+		// margin-left: -70px;//나중에 js에서 설정
+		color: #fff;
+
+		// 모든글씨 대문자로
+		text-transform: uppercase;
+		font-size: $heavyTitle;
+		z-index: 100;
+		// border: 1px solid #fff;
+	} //end of h1
+} //end of #wrap
+
+//id가 있으면 유일하니까 밖에 따로 쓸 수 있음
+#home {
+	overflow: hidden;
+	position: relative;
+	transition: all 0.3s ease-in-out; //네이버라인 비주얼 효과
+
+	&:before {
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: $sec-color-2;
+		opacity: 0.6;
+		content: '';
+	}
+
+	@media #{$mobile} {
+		background-image: url(./../images/visual.png);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	> .intro {
+		position: absolute;
+		left: 0;
+		top: 35%;
+		width: 100%;
+		text-align: center;
+		// border: 1px solid #fff;
+
+		@media #{$mobile} {
+			top: 25%;
+			padding-bottom: 30px;
+		}
+
+		> h2 {
+			color: $pri-color-2;
+			font-size: $slogan;
+			line-height: 80px;
+
+			@media #{$mobile} {
+				font-size: 38px;
+				line-height: 50px;
+			}
+
+			> span {
+				color: $sec-color-1;
+
+				@media #{$mobile} {
+					display: block;
+				}
+			}
+		} //end of h2
+
+		> p {
+			margin-top: 24px;
+			color: $pri-color-3;
+			line-height: 1.8;
+			letter-spacing: 1px;
+
+			> span {
+				@media #{$mobile} {
+					display: block;
+				}
+			}
+		} //end of p
+
+		> .myico {
+			display: flex;
+			justify-content: space-between;
+			width: 320px;
+			margin: 40px auto 0;
+
+			@media #{$mobile} {
+				margin-top: 80px;
+			}
+
+			> span {
+				display: block;
+				width: 40px;
+				border: 1px solid $pri-color-3;
+				border-radius: 3px;
+				transform: rotate(45deg);
+				transition: all 0.4s;
+
+				&:hover {
+					background-color: $pri-color-2;
+					border-color: transparent;
+				}
+
+				> i {
+					display: block;
+					height: 40px;
+					color: $pri-color-3;
+					font-size: $contTitle; //18px
+					line-height: 40px;
+					text-align: center;
+					transform: rotate(-45deg);
+					cursor: pointer;
+				}
+			} //end of span
+		} //end of .myico
+	} //end of .intro
+
+	> .mouse {
+		position: absolute;
+		left: 50%;
+		bottom: 40px;
+		width: 30px;
+		height: 50px;
+		margin-left: -15px;
+		border: 2px solid $pri-color-3;
+		box-sizing: border-box;
+		border-radius: 15px;
+
+		@media #{$mobile} {
+			display: none;
+		}
+
+		@keyframes mousewheel {
+			0% {
+				top: 5px;
+				opacity: 0;
+			}
+			30% {
+				top: 10px;
+				opacity: 1;
+			}
+			100% {
+				top: 20px;
+				opacity: 0;
+			}
+		}
+
+		> .wheel {
+			position: absolute;
+			left: 50%;
+			top: 5px;
+			width: 4px;
+			height: 10px;
+			margin-left: -2px;
+			text-indent: -9999px;
+			background-color: $pri-color-3;
+			border-radius: 2px;
+
+			animation: mousewheel 1s linear infinite;
+		} //end of .wheel
+	} //end of mouse
+
+	> .bgmov {
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: -1;
+
+		@media #{$mobile} {
+			display: none;
+		}
+
+		> video {
+			min-width: 100%;
+			min-height: 100%;
+		} //end of video
+	} //end of .bgmov
+} //end of #home
+
+header {
+	width: 100%;
+	min-width: 1200px;
+	background-color: $pri-color-3;
+	border-bottom: 1px solid $sec-color-3;
+
+	@media #{$mobile} {
+		min-width: 100%;
+	}
+
+	&.fixed {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 1000;
+	}
+
+	> .container {
+		position: relative;
+		height: 66px;
+
+		> h2 {
+			position: absolute;
+			left: 7%;
+			top: 50%;
+			margin-top: -17px;
+			text-indent: 40px;
+			text-transform: uppercase;
+			background-image: url(./../images/logo.png);
+			background-repeat: no-repeat;
+
+			> a {
+				display: block;
+				height: 32px;
+				color: $pri-color-1;
+				line-height: 32px;
+			}
+		} //end of h2
+
+		//반응형 햄버거 버튼
+		> .btn-gnb {
+			display: none;
+
+			@media #{$mobile} {
+				//버튼 기본 css속성 제거
+				background: none;
+				border: none;
+				outline: none;
+
+				//none처리하면 아예 안보이니까 d:b
+				display: block;
+				//버튼 css 설정
+				position: absolute;
+				right: 7%;
+				top: 50%;
+				width: 24px;
+				height: 18px;
+				margin-top: -9px;
+				text-indent: -9999px;
+				background-image: url(./../images/mnu_btn.png);
+				background-position: center center;
+				background-repeat: no-repeat;
+
+				&.clse {
+					background-image: url(./../images/clse_btn.png);
+
+					@keyframes rotateBtn {
+						0% {
+							transform: rotate(0);
+						}
+						100% {
+							transform: rotate(360deg);
+						}
+					}
+
+					&:hover {
+						animation: rotateBtn 0.5s;
+					}
+				}
+			}
+		} //end of .btn-gnb
+
+		> nav {
+			position: absolute;
+			right: 7%;
+			top: 26px;
+			z-index: 1000;
+
+			@media #{$mobile} {
+				//모바일에서 메뉴 안보이게-버튼 클릭하면 나오게는 자바로!
+				display: none;
+
+				right: initial;
+				left: 0;
+				top: 66px;
+				width: 100%;
+				border-top: 1px solid $sec-color-3;
+			}
+
+			> .gnb {
+				display: flex;
+
+				@media #{$mobile} {
+					display: initial;
+				}
+
+				> li {
+					border-right: 1px solid darken($sec-color-3, 20%);
+					&:last-child {
+						border-right-width: 0;
+					}
+
+					@media #{$mobile} {
+						background-color: $pri-color-3;
+						border-right: none;
+						border-bottom: 1px solid $sec-color-3;
+					}
+
+					> a {
+						display: block;
+						padding: 0 15px;
+						color: darken($sec-color-3, 70%);
+						font-weight: 500;
+						text-transform: uppercase;
+						transition: all 0.2s;
+
+						@media #{$mobile} {
+							height: 48px;
+							line-height: 48px;
+							padding: 0;
+							text-indent: 7%;
+						}
+					}
+
+					&:hover > a,
+					&.on > a {
+						color: $pri-color-2;
+					}
+				} //end of li
+			} //end of .gnb
+		} //end of nav
+	} //end of .container
+} //end of header
+
+// 섹션 공통
+header ~ section {
+	//세로 거리를 8배수로 주려고 하는 중 안되면 4배수~
+	padding-top: 80px;
+
+	> h2 {
+		margin-bottom: 72px;
+		color: $pri-color-1;
+		font-size: $mainTitle;
+		line-height: $mainTitle;
+		text-align: center;
+
+		&:after {
+			display: block;
+			width: 138px;
+			height: 15px;
+			margin: 30px auto 0;
+			background-image: url(./../images/deco_tit.png);
+			content: '';
+		}
+	} //end of h2
+} //end of header~section
+
+#aboutme {
+	> .container {
+		display: flex;
+		flex-direction: row-reverse;
+		padding-bottom: 30px;
+
+		@media #{$mobile} {
+			display: block;
+			padding-bottom: 0;
+		}
+
+		> .profile {
+			width: 33.33333%;
+
+			@media #{$mobile} {
+				width: 100%;
+			}
+
+			> div {
+				position: relative;
+				width: 360px;
+				margin: 0 auto;
+				border: 1px solid darken($sec-color-3, 10%);
+				border-radius: 0 0 10px 10px;
+
+				@media #{$mobile} {
+					width: 95%;
+				}
+
+				&:after {
+					display: block;
+					position: absolute;
+					left: 0;
+					bottom: -3px;
+					width: 100%;
+					height: 20px;
+					border-bottom: 1px solid darken($sec-color-3, 10%);
+					border-radius: 0 0 10px 10px;
+					content: '';
+				}
+
+				> .myphoto {
+					overflow: hidden;
+					background-image: url(./../images/aboutme/photo-frame.png);
+					background-position: center bottom;
+					background-size: contain;
+					background-repeat: no-repeat;
+
+					> img {
+						position: relative;
+						z-index: -1;
+						display: block;
+						width: 410px;
+						margin-left: -50px;
+
+						@media #{$mobile} {
+							margin: 0;
+							width: 100%;
+						}
+					}
+				} //end of .myphoto
+
+				> ol {
+					padding: 0 20px;
+
+					> li {
+						height: 45px;
+						font-weight: 300;
+						font-size: $txtMedium;
+						line-height: 45px;
+						border-bottom: 1px solid $sec-color-3;
+
+						&:last-child {
+							border-bottom-width: 0;
+						}
+					}
+				} //end of ol
+			} //end of div
+		} //end of profile
+
+		> .biography {
+			width: 66.66666%;
+
+			@media #{$mobile} {
+				width: 100%;
+				margin-top: 48px;
+			}
+
+			> .detail {
+				margin-bottom: 64px;
+				padding-left: 10%;
+
+				@media #{$mobile} {
+					padding: 0 5%;
+				}
+
+				> h3 {
+					margin-bottom: 30px;
+					font-weight: 500;
+					font-size: $subTitle;
+				}
+
+				> p {
+					margin-bottom: 20px;
+					font-weight: 300;
+					font-size: $txtNormal;
+					line-height: 1.4;
+
+					@media #{$mobile} {
+						line-height: 1.4;
+						> br {
+							display: none;
+						}
+					}
+
+					> mark {
+						background-color: $point-color-2;
+					}
+				} //end of p
+
+				> .ican {
+					margin-top: 80px;
+
+					@media #{$mobile} {
+						margin-top: 50px;
+					}
+
+					> li {
+						font-size: $txtMedium;
+						line-height: 40px;
+
+						&:before {
+							margin-right: 10px;
+							color: $pri-color-2;
+							font-family: 'Font Awesome 5 Free';
+							content: '\f14a';
+						}
+					} //end of li
+				} //end of .ican
+			} //end of .detail
+		} //end of .biography
+	} //end of .container
+
+	> .workstyle {
+		margin-top: 24px;
+		background-color: $pri-color-1;
+
+		@media #{$mobile} {
+			margin-top: 0;
+		}
+
+		> .container {
+			position: relative;
+			width: 1100px;
+			height: 120px;
+			margin: 0 auto;
+
+			@media #{$mobile} {
+				width: 100%;
+				margin: 0;
+			}
+
+			&:after {
+				display: block;
+				position: absolute;
+				left: 120px;
+				top: 20px;
+				width: 67px;
+				height: 60px;
+				background-image: url(./../images/aboutme/audio.gif);
+				content: '';
+
+				@media #{$mobile} {
+					display: none;
+				}
+			}
+
+			> ol {
+				position: absolute;
+				left: 130px;
+				top: 15px;
+				width: 560px;
+				height: 105px;
+
+				@media #{$mobile} {
+					position: initial;
+					width: 100%;
+					height: initial;
+					padding-top: 15px;
+				}
+
+				&:before,
+				&:after {
+					display: block;
+					position: absolute;
+					width: 300px;
+					margin-left: 300px;
+					color: $pri-color-3;
+					font-weight: 300;
+					font-size: $txtMedium;
+					letter-spacing: 0.1em;
+
+					@media #{$mobile} {
+						//스크롤 에러 문제 해결
+						display: none;
+					}
+				}
+
+				&:before {
+					left: 50%;
+					top: 38px;
+					content: '하는';
+				}
+
+				&:after {
+					left: 58%;
+					top: 38px;
+					content: '코딩 스타일을 좋아합니다!';
+				}
+
+				> li {
+					color: $pri-color-3;
+					font-size: $txtMedium;
+					line-height: 30px;
+					text-align: right;
+					letter-spacing: 0.1em;
+
+					@media #{$mobile} {
+						text-align: center;
+					}
+
+					> span {
+						color: $point-color-1;
+						font-weight: 400;
+					}
+				}
+			} //end of ol
+		} //end of .container
+	} //end of .workstyle
+
+	> .talk {
+		background-image: url(./../images/heaven.jpg);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+
+		@media #{$mobile} {
+			background-size: cover;
+		}
+
+		> h3 {
+			padding: 70px 0;
+			color: $pri-color-1;
+			font-weight: 500;
+			font-size: $subTitle;
+			text-align: center;
+		} //end of h3
+
+		> ul {
+			display: flex;
+			justify-content: space-evenly;
+			padding-bottom: 50px;
+
+			@media #{$mobile} {
+				display: block;
+				width: 95%;
+				margin: 0 auto;
+			}
+
+			> li {
+				position: relative;
+				width: 30%;
+				min-width: 155px;
+				min-height: 400px;
+				padding: 0 2%;
+				background-color: $pri-color-3;
+				border: 1px solid darken($sec-color-3, 20%);
+				border-radius: 16px;
+				box-sizing: border-box;
+
+				@media #{$mobile} {
+					width: 100%;
+					min-height: 450px;
+					padding: 0 10%;
+					margin-bottom: 20px;
+					box-shadow: 0 0 10px rgba(14, 14, 14, 0.5);
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				> h4 {
+					position: absolute;
+					left: 50%;
+					top: 140px;
+					margin-left: 30px;
+					padding: 5px 10px 5px 30px;
+					color: $pri-color-3;
+					font-weight: 400;
+					letter-spacing: 3px;
+					background-color: $pri-color-2;
+
+					@media #{$mobile} {
+						top: initial;
+						bottom: 15px;
+						margin-left: -30px;
+						padding: 5px 10px;
+						letter-spacing: 5px;
+						text-indent: 5px;
+					}
+
+					&:after {
+						display: block;
+						position: absolute;
+						left: -105px;
+						top: -115px;
+						width: 150px;
+						height: 150px;
+						background-size: cover;
+						border-radius: 50%;
+
+						content: '';
+
+						@media #{$mobile} {
+							top: -370px;
+							left: -50px;
+						}
+					}
+				} //end of h4
+
+				&:nth-child(1) > h4:after {
+					background-image: url(./../images/내사진/친구2.jpg);
+					background-position: -95px -30px;
+					background-repeat: no-repeat;
+					background-size: 200%;
+				}
+
+				&:nth-child(2) > h4:after {
+					background-image: url(./../images/내사진/친구4.jpg);
+					background-position: 0 center;
+					background-repeat: no-repeat;
+				}
+
+				&:nth-child(3) > h4:after {
+					background-image: url(./../images/내사진/친구3.jpg);
+					background-position: 0 -30px;
+					background-repeat: no-repeat;
+					background-size: 130%;
+				}
+
+				> strong {
+					display: block;
+					margin: 190px 0 30px;
+					font-size: $txtMedium;
+					text-align: center;
+
+					@media #{$mobile} {
+						margin-top: 210px;
+					}
+				} //end of strong
+
+				> p {
+					line-height: 1.8;
+					text-align: center;
+				}
+			} //end of li
+		} //end of ul
+	} //end of .talk
+} //end of #aboutme
+
+#skill {
+	> article {
+		&.skill-1 {
+			margin-bottom: 120px;
+
+			@media #{$mobile} {
+				margin-bottom: 40px;
+				padding-bottom: 40px;
+				border-bottom: 1px solid $sec-color-3;
+			}
+		}
+
+		> h3 {
+			margin-bottom: 80px;
+			font-size: $subTitle;
+			font-weight: 400;
+			line-height: 48px;
+			text-align: center;
+
+			@media #{$mobile} {
+				margin-bottom: 40px;
+			}
+
+			> span {
+				display: block;
+			}
+		} //end of h3
+
+		> ol {
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+
+			@media #{$mobile} {
+				display: block;
+				width: 90%;
+				margin: 0 auto;
+			}
+
+			> li {
+				display: flex;
+
+				flex-direction: column;
+				flex-wrap: nowrap;
+
+				flex-flow: column nowrap;
+
+				justify-content: center;
+				width: 45%;
+				height: 150px;
+				padding-left: 180px;
+				background-repeat: no-repeat;
+				box-sizing: border-box;
+				// outline: 1px solid red;
+
+				@media #{$mobile} {
+					width: 100%;
+					// outline: 1px solid red;
+
+					&:first-child {
+						margin-bottom: 40px;
+					}
+				}
+
+				> h4 {
+					margin-bottom: 30px;
+					font-weight: 400;
+					font-size: $heavyTitle;
+				} //end of h4
+
+				> p {
+					line-height: 1.6;
+				} //end of p
+			} //end of li
+		} //end of ol
+
+		&.skill-1 li:first-child {
+			padding-left: 360px;
+			background-image: url(./../images/skill/skill01.png);
+			background-position: 180px 0;
+
+			@media #{$mobile} {
+				padding-left: 180px;
+				background-position: 0 0;
+			}
+		} //end of .skill-1
+
+		&.skill-1 li:last-child {
+			background-image: url(./../images/skill/skill02.png);
+		} //end of .skill-1
+
+		&.skill-2 li:first-child {
+			padding-left: 360px;
+			background-image: url(./../images/skill/skill03.png);
+			background-position: 180px 0;
+
+			@media #{$mobile} {
+				padding-left: 180px;
+				background-position: 0 0;
+			}
+		} //end of .skill-2
+
+		&.skill-2 li:last-child {
+			background-image: url(./../images/skill/skill04.png);
+		} //end of .skill-2
+	} //end of article
+} //end of #skill
+
+#ability {
+	margin-top: 100px;
+	background-color: darken($sec-color-2, 10%);
+
+	> h2 {
+		color: #fff;
+	}
+
+	> .ability-container {
+		padding-bottom: 50px;
+
+		> .stick {
+			display: flex;
+			justify-content: space-around;
+
+			@media #{$mobile} {
+				display: block;
+			}
+
+			> .stick-container {
+				width: 43%;
+
+				@media #{$mobile} {
+					width: 100%;
+				}
+
+				> .item {
+					//d:f덕분에 ta:r이 왼쪽으로 감
+					display: flex;
+					margin-bottom: 40px;
+
+					@media #{$mobile} {
+						padding: 0 7%;
+					}
+
+					> h3 {
+						width: 17%;
+						height: 10px;
+						padding-right: 8%;
+						color: #fff;
+						font-weight: 600;
+						line-height: 10px;
+						text-align: right;
+
+						@media #{$mobile} {
+							font-size: 15px;
+						}
+					} //end of h3
+
+					> .progress {
+						position: relative;
+						width: 75%;
+						height: 10px;
+						background-color: #3a4149;
+						border-radius: 3px;
+
+						> .bar {
+							width: 0;
+							// width: 100px; : JS에서 동적으로 할당
+							height: 100%;
+							background-color: $pri-color-2;
+							transition: all 2s ease-in-out;
+
+							> span {
+								position: absolute;
+								top: -20px;
+								right: 15px;
+								color: #fff;
+							}
+						} //end of .bar
+					} //end of .progress
+				} //end of .item
+			} //end of .stick-container
+		} //end of .stick
+
+		> .piechart {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 40px;
+
+			@media #{$mobile} {
+				flex-flow: row wrap;
+				margin-top: 70px;
+			}
+
+			> .item {
+				width: 140px;
+				height: 200px;
+
+				> .chart {
+					position: relative;
+					width: 140px;
+					height: 140px;
+					text-align: center;
+
+					// canvas 입력해서 하라고 라이브러리에 나와있음
+					canvas {
+						position: absolute;
+						left: 0;
+						top: 0;
+					}
+
+					> .percent {
+						color: #fff;
+						font-weight: 500;
+						font-size: 25px;
+						line-height: 140px;
+
+						&:after {
+							content: '%';
+						}
+					} //end of .percent
+
+					> .tit {
+						height: 60px;
+						color: $point-color-2;
+						font-weight: 500;
+						font-size: $contTitle;
+						line-height: 60px;
+					} //end of h3
+				} //end of .chart
+			} //end of .item
+		} //end of .piechart
+	} //end of.ability-container
+
+	> .resume {
+		padding: 50px 0;
+		background-color: #fff;
+
+		@media #{$mobile} {
+			padding-bottom: 0;
+		}
+
+		> div {
+			display: flex;
+			justify-content: center;
+			padding: 0 30px;
+
+			@media #{$mobile} {
+				display: block;
+			}
+
+			> .frame {
+				overflow: hidden;
+				width: 520px;
+				height: 340px;
+				margin-right: 50px;
+				border: 1px solid #000;
+
+				@media #{$mobile} {
+					width: 100%;
+					height: auto;
+					margin-right: 0;
+					margin-bottom: 10px;
+				}
+
+				> img {
+					@include imgBasic;
+				}
+			} //end of .frame
+
+			> .iam {
+				display: flex;
+				flex-flow: column nowrap;
+				justify-content: space-between;
+
+				> p {
+					line-height: 1.8;
+
+					@media #{$mobile} {
+						> br {
+							display: none;
+						}
+					}
+
+					> span {
+						//엔터효과는 br넣으면 되는데 span으로 감싸서 이렇게도 줄 수 있음
+						display: block;
+
+						@media #{$mobile} {
+							display: inline;
+						}
+					}
+				} //end of p
+
+				> a {
+					display: block;
+					width: 260px;
+					height: 40px;
+					color: #fff;
+					line-height: 40px;
+					text-align: center;
+					background-color: darken($sec-color-2, 10%);
+
+					@media #{$mobile} {
+						display: none;
+					}
+				} //end of a
+
+				> .shadow {
+					display: none;
+					position: fixed;
+					left: 0;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					z-index: 1000;
+					background-color: rgba(0, 0, 0, 0.5);
+
+					> .modal {
+						display: block;
+						overflow-y: scroll;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						width: 1200px;
+						height: 800px;
+						margin: -400px 0 0 -600px;
+						> img {
+							//믹신변수
+							@include imgBasic;
+						}
+					} //end of .modal
+
+					> .clse {
+						display: block;
+						position: absolute;
+						left: 50%;
+						top: 50%;
+						margin: 360px 0 0 520px;
+					}
+				} //end of .shadow
+			} //end of .iam
+		} //end of div
+	} //end of .resume
+} //end of #ability
+
+#uxdesign {
+	width: 1200px;
+	margin: 0 auto;
+
+	@media #{$mobile} {
+		width: 100%;
+		margin: 0;
+	}
+
+	> .slides {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		height: 440px;
+
+		@media #{$mobile} {
+			height: 300px;
+		}
+
+		> .slides-container {
+			display: flex;
+			position: absolute;
+			left: 0%;
+			/*
+           left : -(100*nowIdx) + '%'
+
+           첫번째 슬라이드   0%            -100*0 + '%'
+           두번째 슬라이드   -100%         -100*1 + '%'
+           세번째 슬라이드 -200%         -100*2 + '%'
+           네번째 슬라이드 -300%         -100*3 + '%'
+        */
+
+			top: 0;
+			width: 400%;
+			//부모 사이즈의 4배
+
+			> li {
+				//부모사이즈의 4/1이라 25% ! 100% 하면 slides-container랑 크기가 똑같아짐
+				width: 25%;
+				height: 440px;
+				text-indent: -9999px;
+				background-position: center center;
+				background-size: cover;
+
+				&.banner_1 {
+					background-image: url(./../images/내사진/uxui1.png);
+
+					@media #{$mobile} {
+						background-image: url(./../images/내사진/ui3.jpg);
+					}
+				}
+				&.banner_2 {
+					background-image: url(./../images/내사진/ux.jpg);
+					@media #{$mobile} {
+						background-image: url(./../images/내사진/ui2.jpg);
+					}
+				}
+
+				&.banner_3 {
+					background-image: url(./../images/내사진/ui.jpg);
+					@media #{$mobile} {
+						background-image: url(./../images/내사진/uidesign2.jpg);
+					}
+				}
+
+				&.banner_4 {
+					background-image: url(./../images/내사진/uidesign.jpg);
+					@media #{$mobile} {
+						background-image: url(./../images/내사진/phone.png);
+					}
+				}
+			} //end of li
+		} //end of .slides-container
+
+		> .slides-pagination {
+			display: flex;
+			justify-content: space-between;
+			position: absolute;
+			left: 50%;
+			bottom: 15px;
+			width: 110px;
+			margin-left: -55px;
+
+			> li {
+				width: 18px;
+				background-image: url(./../images/uxdesign/slides/bul.png);
+
+				&.on,
+				&:hover {
+					background-position: 0 -18px;
+				}
+
+				> a {
+					display: block;
+					height: 18px;
+					text-indent: -9999px;
+				} //end of a
+			} //end of li
+		} //end of .slides-pagination
+
+		> .slides-navigation {
+			display: block;
+			position: absolute;
+			top: 50%;
+			width: 80px;
+			height: 100px;
+			margin-top: -50px;
+			text-indent: -9999px;
+			background-image: url(./../images/uxdesign/slides/btn_navigation.png);
+			// border: 1px solid #000;
+
+			&.slides-prev {
+				left: 0;
+				background-position: -5px -225px;
+
+				&:hover {
+					background-position: -5px -335px;
+				}
+			}
+
+			&.slides-next {
+				right: 0;
+				background-position: -5px -5px;
+
+				&:hover {
+					background-position: -5px -115px;
+				}
+			}
+		} //end of .slides-navigation
+	} //end of .slides
+
+	> .intro {
+		padding: 80px 0 104px;
+
+		> h3 {
+			position: relative;
+			margin-bottom: 56px;
+			font-weight: 500;
+			font-size: $subTitle;
+			text-align: center;
+
+			@media #{$mobile} {
+				line-height: 1.4;
+				> span {
+					display: block;
+					height: 0;
+					text-indent: -9999px;
+				}
+			}
+
+			&:before {
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 48px;
+				height: 86px;
+				background-image: url(./../images/deocBlockTransparent.png);
+				content: '';
+			}
+
+			&:after {
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 180px;
+				width: 58px;
+				height: 156px;
+				background-image: url(./../images/decoBlockBlue.png);
+				content: '';
+			}
+
+			@media #{$mobile} {
+				&:before,
+				&:after {
+					display: none;
+				}
+			}
+		} //end of h3
+
+		> p {
+			width: 664px;
+			margin: 0 auto 80px;
+			line-height: 2;
+
+			@media #{$mobile} {
+				width: 90%;
+				margin-bottom: 30px;
+				line-height: 1.6;
+
+				br {
+					display: none;
+				}
+			}
+
+			> span {
+				display: block;
+				margin-bottom: 30px;
+			}
+
+			> strong {
+				font-weight: 400;
+			}
+		} //end of p
+
+		> .bus-alarm {
+			display: flex;
+
+			@media #{$mobile} {
+				flex-direction: column-reverse;
+			}
+
+			> h4 {
+				//h4 플렉스아이템만 개별적으로 교차축정렬
+				align-self: flex-end;
+				width: 43%;
+				margin-right: 20px;
+				font-weight: 400;
+				font-size: $txtMedium;
+				text-align: right;
+
+				@media #{$mobile} {
+					width: 100%;
+					margin-right: 0;
+					text-align: center;
+				}
+			}
+
+			> .frame {
+				width: 527px;
+
+				&:nth-of-type(2) {
+					padding-right: 130px;
+
+					@media #{$mobile} {
+						padding: 0;
+					}
+				}
+
+				@media #{$mobile} {
+					width: 90%;
+					margin: 0 auto 10px;
+				}
+
+				> img {
+					display: block;
+					width: 100%;
+				}
+			}
+		} //end of .bus-alarm
+	} //end of .intro
+
+	> .uxui {
+		width: 1200px;
+		padding-bottom: 104px;
+
+		@media #{$mobile} {
+			width: 100%;
+		}
+
+		> h3 {
+			position: relative;
+			width: 330px;
+			margin: 0 auto 156px;
+			padding-bottom: 20px;
+			font-weight: 500;
+			font-size: $subTitle;
+			text-align: center;
+			border-bottom: 2px solid $sec-color-3;
+
+			@media #{$mobile} {
+				margin-bottom: 50px;
+			}
+
+			&:before,
+			&:after {
+				position: absolute;
+				top: 130px;
+				color: $pri-color-2;
+				font-weight: 800;
+				font-size: 36px;
+			}
+
+			&:before {
+				left: 50%;
+				margin-left: -200px;
+				content: 'UI';
+
+				@media #{$mobile} {
+					top: 210px;
+					width: 40px;
+					margin-left: -20px;
+					font-size: $heavyTitle;
+					text-align: center;
+				}
+			}
+
+			&:after {
+				right: 50%;
+				margin-right: -200px;
+				content: 'UX';
+
+				@media #{$mobile} {
+					top: 520px;
+					width: 40px;
+					margin-right: -20px;
+					font-size: $heavyTitle;
+					text-align: center;
+				}
+			}
+		} //end of h3
+
+		> .container {
+			@media #{$mobile} {
+				display: flex;
+				justify-content: center;
+			}
+
+			> .uxui-case {
+				display: flex;
+				flex-direction: row;
+				// justify-content: center;
+				position: relative;
+
+				@media #{$mobile} {
+					flex-direction: column;
+					width: 40%;
+
+					&:first-child {
+						margin-right: 30px;
+					}
+
+					&:last-child {
+						margin-left: 30px;
+					}
+				}
+
+				> dl {
+					width: 40%;
+					height: 280px;
+					margin: 0 auto;
+					padding-top: 100px;
+					line-height: 1.3;
+					text-align: center;
+					background-color: darken($sec-color-3, 10%);
+					box-sizing: border-box;
+					order: 200;
+
+					@media #{$mobile} {
+						width: 100%;
+						padding: 80px 10px 0;
+					}
+
+					> dt {
+						margin-bottom: 30px;
+						color: lighten($sec-color-2, 10%);
+						font-weight: 600;
+						font-size: 20px;
+					} //end of dt
+
+					> dd {
+						color: lighten($sec-color-2, 10%);
+						font-size: $txtSmall;
+						line-height: 1.6;
+
+						@media #{$mobile} {
+							> br {
+								display: none;
+							}
+						}
+					} //end of dd
+				} //end of dl
+
+				> .ui-frame {
+					order: 100;
+					position: absolute;
+					left: 50%;
+					top: 0;
+					width: 420px;
+					height: 280px;
+					margin-left: -420px;
+					transition: all 0.3s ease-out;
+
+					@media #{$mobile} {
+						position: initial;
+						width: 100%;
+						height: auto;
+						margin: 0;
+					}
+
+					> img {
+						display: block;
+						width: 100%;
+						height: 100%;
+						border-radius: 140px 0 0 140px;
+
+						@media #{$mobile} {
+							height: 200px;
+							border-radius: 150px 150px 0 0;
+						}
+					}
+				} //end of .ui-frame
+
+				> .ux-frame {
+					order: 300;
+					position: absolute;
+					right: 50%;
+					top: 0;
+					width: 420px;
+					height: 280px;
+					margin-right: -420px;
+					transition: all 0.3s ease-out;
+
+					@media #{$mobile} {
+						position: initial;
+						width: 100%;
+						height: auto;
+						margin: 0;
+					}
+
+					> img {
+						display: block;
+						width: 100%;
+						height: 100%;
+						border-radius: 0 140px 140px 0;
+
+						@media #{$mobile} {
+							border-radius: 0 0 150px 150px;
+
+							&:nth-of-type(1) {
+								height: 250px;
+							}
+						}
+					}
+				} //end of .ux-frame
+
+				&:hover > .ui-frame {
+					left: 0;
+					margin-left: 0;
+				}
+
+				&:hover > .ux-frame {
+					right: 0;
+					margin-right: 0;
+				}
+
+				&:nth-of-type(2) {
+					margin-top: 30px;
+
+					@media #{$mobile} {
+						margin-top: 0;
+					}
+				}
+			} //end of .uxui-case
+		} //end of .container
+	} //end of .uxui
+
+	> .works {
+		margin-bottom: 50px;
+
+		> h3 {
+			position: relative;
+			width: 330px;
+			margin: 0 auto 56px;
+			padding-bottom: 20px;
+			font-weight: 500;
+			font-size: $subTitle;
+			text-align: center;
+			border-bottom: 2px solid $sec-color-3;
+		} //end of h3
+
+		> .works-list {
+			display: flex;
+			justify-content: space-between;
+
+			&:last-child {
+				margin-top: 64px;
+			}
+
+			@media #{$mobile} {
+				display: block;
+				width: 90%;
+				margin: 0 auto;
+			}
+
+			> li {
+				width: 384px;
+				padding-top: 24px;
+				background-color: #fff;
+				box-sizing: border-box;
+				box-shadow: 0 7px 20px rgba(182, 245, 206, 0.2);
+
+				@media #{$mobile} {
+					width: 100%;
+					margin-bottom: 64px;
+					box-shadow: 0 0 10px #aaa;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+
+				> h4 {
+					padding-bottom: 36px;
+					font-weight: 500;
+					font-size: $contTitle;
+					text-align: center;
+				} //end of h4
+
+				> h4 + p {
+					padding: 0 65px;
+					margin-bottom: 20px;
+					line-height: 24px;
+
+					> .tip {
+						display: block;
+						color: $sec-color-1;
+						padding-top: 20px;
+						font-weight: 600;
+						text-align: center;
+					}
+				} //end of h4+p
+
+				> .frame {
+					overflow: hidden;
+					border: 1px solid $sec-color-3;
+
+					> a {
+						> img {
+							display: block;
+							width: 100%;
+							transition: all 0.5s;
+
+							&:hover {
+								transform: scale(1.2);
+							}
+						}
+					} //end of a
+				} //end of .frame
+			} //end of li
+		} //end of .works-list
+	} //end of .works
+} //end of #uxdesign
+
+#portfolio {
+	> article {
+		width: 1200px;
+		margin: 0 auto;
+		//  border: 1px solid #000;
+
+		@media #{$mobile} {
+			width: 100%;
+			margin: 0;
+		}
+
+		&.slides {
+			position: relative;
+
+			@media #{$mobile} {
+				display: flex;
+				//pagination 과 container fxd로 순서 바꿔줌
+				flex-direction: column-reverse;
+			}
+
+			> .slides-pagination {
+				display: flex;
+				justify-content: space-around;
+				width: 840px;
+				margin: 0 auto 96px;
+
+				@media #{$mobile} {
+					position: absolute;
+					left: 50%;
+					bottom: 6px;
+					z-index: 100;
+					width: 180px;
+					margin: 0;
+					margin-left: -90px;
+					background-color: $sec-color-3;
+					border-radius: 50px;
+				}
+
+				> li {
+					overflow: hidden;
+					width: 120px;
+					border: 1px solid $sec-color-3;
+					border-radius: 20px;
+
+					@media #{$mobile} {
+						width: 60px;
+					}
+
+					&.on > a,
+					&:hover > a {
+						color: $pri-color-3;
+						background-color: $pri-color-2;
+					}
+
+					> a {
+						display: block;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+
+						@media #{$mobile} {
+							height: 10px;
+							text-indent: -9999px;
+							transition: all 0.3s;
+						}
+					} //end of a
+				} //end of li
+			} //end of slides-pagination
+
+			> .slides-container {
+				overflow: hidden;
+				position: relative;
+				width: 100%;
+				height: 380px;
+
+				@media #{$mobile} {
+					height: 600px;
+				}
+
+				> figure {
+					display: none;
+					justify-content: space-between;
+					position: absolute;
+					left: 0;
+					top: 0;
+
+					@media #{$mobile} {
+						flex-direction: column-reverse;
+					}
+
+					&:nth-child(1) {
+						display: flex;
+					}
+
+					&:nth-child(3) {
+						> figcaption {
+							> h3 {
+								font-size: 24px;
+							}
+						}
+					}
+
+					> figcaption {
+						// display: block;
+						width: 500px;
+						padding-top: 35px;
+
+						@media #{$mobile} {
+							width: 80%;
+							margin: 0 auto;
+							padding-bottom: 50px;
+						}
+
+						> h3 {
+							font-weight: 600;
+							font-size: $heading;
+							line-height: 24px;
+						}
+
+						> .tip {
+							margin-top: 8px;
+							color: darken($sec-color-3, 50%);
+						}
+
+						> .desc,
+						> .tools,
+						> .etc {
+							margin-top: 20px;
+							color: darken($sec-color-3, 70%);
+							line-height: 24px;
+
+							> span {
+								font-weight: 600;
+							}
+
+							@media #{$mobile} {
+								br {
+									display: none;
+								}
+							}
+						}
+
+						> .etc {
+							margin: 0 0 30px 0;
+						}
+
+						> .btn {
+							display: flex;
+
+							> a {
+								display: block;
+								width: 132px;
+								height: 40px;
+								font-size: 15px;
+								line-height: 40px;
+								letter-spacing: 2px;
+								text-align: center;
+								background-color: $sec-color-3;
+								border-radius: 50px;
+								transition: all 0.2s ease-out;
+
+								&.proc {
+									margin-right: 10px;
+
+									@media #{$mobile} {
+										display: none;
+									}
+								}
+
+								&:hover {
+									color: $pri-color-3;
+									background-color: $sec-color-1;
+								}
+							} //end of a
+						} //end of btn
+
+						> .shadow {
+							display: none;
+							position: fixed;
+							left: 0;
+							right: 0;
+							top: 0;
+							bottom: 0;
+							z-index: 1000;
+							background-color: rgba(0, 0, 0, 0.5);
+
+							> .lightbox {
+								display: block;
+								overflow-y: scroll;
+								position: absolute;
+								left: 50%;
+								top: 50%;
+								width: 960px;
+								height: 800px;
+								margin: -400px 0 0 -480px;
+
+								> img {
+									display: block;
+									width: 100%;
+								}
+							} //end of .lightbox
+
+							> .clse {
+								position: absolute;
+								left: 50%;
+								top: 50%;
+								margin: 370px 0 0 410px;
+							} //end of .clse
+						} //end of .shadow
+					} //end of figcaption
+
+					> .frame {
+						position: relative;
+						width: 700px;
+						height: 380px;
+						background-image: url(./../images/portfolio/bg_macbook.png);
+						background-repeat: no-repeat;
+
+						@media #{$mobile} {
+							width: 360px;
+							height: 198px;
+							margin: 0 auto;
+							background-size: contain;
+						}
+
+						> img {
+							display: block;
+							position: absolute;
+							left: 76px;
+							top: 27px;
+							width: 553px;
+
+							@media #{$mobile} {
+								left: 42px;
+								top: 18px;
+								width: 280px;
+							}
+						}
+					} //end of .frame
+				} //end of figure
+			} //end of slides-container
+
+			//이전다음
+			> .slides-navigation {
+				display: none;
+
+				@media #{$mobile} {
+					display: block;
+					position: absolute;
+					bottom: 0;
+					width: 50px;
+					height: 25px;
+					text-indent: -9999px;
+					// border: 1px solid #000;
+
+					&.slides-prev {
+						left: 7%;
+						background-image: url(./../images/portfolio/btn_prev.png);
+					}
+					&.slides-next {
+						right: 7%;
+						background-image: url(./../images/portfolio/btn_next.png);
+					}
+				}
+			} //end of .slides-navigation
+		} //end of .slides
+
+		&.intro {
+			width: 100%;
+			background-image: url(./../images/portfolio/bg_pofol.png);
+			background-size: cover;
+
+			> .container {
+				width: 1200px;
+				margin: 0 auto;
+				padding: 80px 0;
+
+				@media #{$mobile} {
+					width: 100%;
+				}
+
+				> h3 {
+					position: relative;
+					margin-bottom: 56px;
+					font-weight: 500;
+					font-size: $subTitle;
+					text-align: center;
+
+					&:before {
+						display: block;
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 48px;
+						height: 86px;
+						background-image: url(./../images/deocBlockTransparent.png);
+						content: '';
+					}
+
+					&:after {
+						display: block;
+						position: absolute;
+						right: 0;
+						top: 180px;
+						width: 58px;
+						height: 156px;
+						background-image: url(./../images/decoBlockBlue.png);
+						content: '';
+					}
+
+					@media #{$mobile} {
+						> span {
+							display: block;
+							margin-top: 22px;
+						}
+
+						&:after,
+						&:before {
+							display: none;
+						}
+					}
+				} //end of h3
+
+				> p {
+					width: 664px;
+					margin: 0 auto 80px;
+					line-height: 30px;
+
+					@media #{$mobile} {
+						width: 90%;
+						margin-bottom: 20px;
+					}
+
+					> span {
+						display: block;
+						margin-bottom: 30px;
+
+						@media #{$mobile} {
+							br {
+								display: none;
+							}
+						}
+					}
+
+					> strong {
+						font-weight: 400;
+					}
+				} //end of p
+
+				> .coding {
+					margin-top: 100px;
+
+					@media #{$mobile} {
+						margin-top: 0;
+					}
+
+					> h4 {
+						position: relative;
+						height: 300px;
+						margin-bottom: 104px;
+						font-weight: 400;
+						// border: 1px solid #000;
+
+						@media #{$mobile} {
+							width: 90%;
+							margin: 0 auto 50px;
+							text-align: center;
+						}
+
+						> span {
+							position: absolute;
+							left: 50%;
+							bottom: 0;
+							margin-left: -140px;
+
+							@media #{$mobile} {
+								left: 0;
+								bottom: -20px;
+								width: 100%;
+								margin: 0;
+							}
+						}
+
+						&:after {
+							display: block;
+							position: absolute;
+							right: 35px;
+							bottom: 0;
+							z-index: -1;
+							width: 470px;
+							height: 300px;
+							background-image: url(./../images/내사진/code01.png);
+							content: '';
+
+							@media #{$mobile} {
+								width: 100%;
+								right: 50%;
+								margin-right: -50%;
+							}
+						}
+					} //end of h4
+
+					> div {
+						height: 487px;
+						padding-left: 550px;
+						background-image: url(./../images/내사진/code02.png);
+						background-position: 50px 0;
+						background-repeat: no-repeat;
+						// box-sizing: border-box;
+
+						@media #{$mobile} {
+							width: 90%;
+							margin: 0 auto;
+							padding-left: 0;
+							padding-bottom: 320px;
+							background-position: 0 bottom;
+						}
+
+						> h4 {
+							padding: 30px 0;
+							font-size: $subTitle;
+
+							@media #{$mobile} {
+								font-weight: 500;
+								font-size: $contTitle;
+							}
+						} //end of h4
+
+						> p {
+							line-height: 30px;
+
+							@media #{$mobile} {
+								line-height: 1.6;
+
+								br {
+									display: none;
+								}
+							}
+
+							> span {
+								display: block;
+								margin-bottom: 30px;
+
+								@media #{$mobile} {
+									margin-bottom: 20px;
+								}
+							}
+						} //end of p
+					} //end of div
+				} //end of .coding
+			} //end of .container
+		} //end of .intro
+	} //end of article
+} //end of #portfolio
+
+#contact {
+	width: 1200px;
+	margin: 0 auto 150px;
+
+	@media #{$mobile} {
+		width: 100%;
+		margin: 0;
+		margin-bottom: 50px;
+	}
+
+	> .apply {
+		border: 1px solid darken($sec-color-3, 10%);
+		border-radius: 5px;
+		box-sizing: border-box;
+
+		@media #{$mobile} {
+			border: none;
+		}
+
+		> .help {
+			position: relative;
+			height: 120px;
+			margin-bottom: 10px;
+			border-bottom: 1px solid darken($sec-color-3, 10%);
+
+			@media #{$mobile} {
+				width: 90%;
+				margin: 0 auto;
+			}
+
+			> h3 {
+				position: absolute;
+				left: 120px;
+				top: 52px;
+				font-weight: 500;
+				font-size: $subTitle;
+
+				@media #{$mobile} {
+					position: initial;
+				}
+
+				&:after {
+					display: block;
+					//h3도 pos:a 되어있기때문에 기준점은 h3
+					position: absolute;
+					right: -90px;
+					top: -5px;
+					width: 1px;
+					height: 50px;
+					background-color: darken($sec-color-3, 10%);
+					content: '';
+
+					@media #{$mobile} {
+						display: none;
+					}
+				}
+			} //end of h3
+
+			> p {
+				position: absolute;
+				left: 650px;
+				top: 40px;
+				font-size: $contTitle;
+				line-height: 24px;
+
+				@media #{$mobile} {
+					position: initial;
+					margin-top: 20px;
+				}
+			} //end of p
+		} //end of .help
+
+		> dl {
+			@media #{$mobile} {
+				width: 90%;
+				margin: 0 auto;
+			}
+			> dt {
+				&.on {
+					background-color: $sec-color-1;
+
+					> a {
+						color: $pri-color-3;
+						//bdbtwidth 0으로 하면 사이즈가 변경되는거처럼 보여서 bdbc transparent로 변경
+						border-bottom-color: transparent;
+
+						&:after {
+							background-image: url(./../images/contact/after_up.png);
+						}
+					}
+				}
+
+				&:nth-of-type(7) > a {
+					//마지막 dt의 직계자식 a의 bdbt 안보이게
+					border-bottom: none;
+				}
+
+				> a {
+					display: block;
+					position: relative;
+					width: 90%;
+					margin: 0 auto;
+					font-weight: 300;
+					font-size: $txtNormal;
+					line-height: 70px;
+					border-bottom: 1px solid $sec-color-3;
+
+					&:after {
+						display: block;
+						position: absolute;
+						right: 0;
+						top: 50%;
+						width: 15px;
+						height: 19px;
+						//화살표 위치 mgt으로 조절
+						margin-top: -5px;
+						background-image: url(./../images/contact/after_down.png);
+						background-repeat: no-repeat;
+						content: '';
+					}
+				} //end of a
+			} //end of dt
+
+			> dd {
+				display: none;
+				background-color: lighten($sec-color-3, 2%);
+
+				// &:nth-of-type(2) {
+				// 	//임시로 줬던것
+				// 	display: block;
+				// }
+
+				> .answer {
+					margin: 0 90px;
+					padding: 40px 0;
+
+					> span {
+						display: block;
+						font-weight: 600;
+					}
+
+					@media #{$mobile} {
+						margin: 0 20px;
+					}
+				} //end of .answer
+			} //end of dd
+		} //end of dl
+
+		> p {
+			display: flex;
+			align-items: center;
+			height: 100px;
+			padding-left: 72px;
+			font-weight: 200;
+			line-height: 32px;
+			background-color: darken($sec-color-3, 1%);
+			background-image: url(./../images/contact/thank.png);
+			background-position: 95% 60%;
+			background-repeat: no-repeat;
+
+			@media #{$mobile} {
+				height: 150px;
+				padding: 0 20px;
+				font-weight: 300;
+				text-align: center;
+				background-image: none;
+			}
+		} //end of p
+	} //end of .apply
+} //end of contact
+
+footer {
+	min-width: 1200px;
+
+	@media #{$mobile} {
+		min-width: 100%;
+	}
+
+	> .working {
+		border-top: 1px solid $sec-color-3;
+
+		> p {
+			padding-left: 7%;
+			height: 80px;
+			line-height: 80px;
+
+			> a {
+				margin: 0 30px;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		} //end of p
+	} //end of .working
+
+	> .info {
+		background-color: darken($sec-color-2, 10%);
+
+		> .container {
+			position: relative;
+			padding: 45px 7% 40px;
+
+			h2,
+			p {
+				margin-bottom: 15px;
+				color: #aaa;
+				font-size: $txtSmall;
+
+				> a {
+					color: #aaa;
+				}
+
+				> .bar {
+					margin: 0 10px;
+				}
+			}
+
+			h2:after {
+				display: block;
+				position: absolute;
+				right: 7%;
+				top: 50%;
+				width: 53px;
+				height: 68px;
+				margin-top: -34px;
+				background-image: url(./../images/footer_logo.png);
+				content: '';
+
+				@media #{$mobile} {
+					display: none;
+				}
+			} //end of :after
+
+			@media #{$mobile} {
+				> p.iam_2 > span {
+					display: block;
+				}
+			}
+		} //end of .container
+	} //end of .info
+} //end of footer
+
+aside {
+	display: none;
+	position: fixed;
+	right: 1em;
+	bottom: 1em;
+	z-index: 1000;
+
+	> .top {
+		display: block;
+		width: 28px;
+		height: 28px;
+		line-height: 28px;
+		text-align: center;
+		background-color: $pri-color-2;
+
+		> i {
+			color: $pri-color-3;
+		}
+	} //.top
+} //end of aside
